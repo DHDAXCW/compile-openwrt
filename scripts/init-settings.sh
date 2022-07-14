@@ -9,16 +9,12 @@
 
 # Set default theme to luci-theme-argon
 uci set luci.main.mediaurlbase='/luci-static/argon'
-uci set dhcp.wan6=dhcp
-uci set dhcp.wan6.interface=wan
-uci set dhcp.wan6.ra=hybrid
-uci set dhcp.wan6.dhcpv6=hybrid
-uci set dhcp.wan6.ndp=hybrid
-uci set dhcp.wan6.master=1
-uci set dhcp.lan.force='1'
-uci set "fstab.@global[0].check_fs=1"
-uci set "fstab.@global[0].anon_mount=1"
-uci commit
+
+# 禁用ipv6前缀
+sed -i 's/^[^#].*option ula/#&/' /etc/config/network
+
+# Disable opkg signature check
+# sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
 
 # Disable autostart by default for some packages
 cd /etc/rc.d
