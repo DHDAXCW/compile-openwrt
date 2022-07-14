@@ -144,8 +144,8 @@ jobs:
         sed -i "s/http:\/\/192.168.123.100:2345\/snapshots/https:\/\/openwrt.cc\/snapshots\/$(date +"%Y-%m-%d")\/lean/g" files/etc/opkg/distfeeds.conf.mirror
         make package/install -j$(nproc) || make package/install -j1 V=s
         make target/install -j$(nproc) || make target/install -j1 V=s
-        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-embedfire_doornet2.manifest
-        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-embedfire_doornet2-rootfs.tar.gz
+        rm -rf bin/targets/rockchip/armv8/openwrt*.manifest
+        rm -rf bin/targets/rockchip/armv8/openwrt*-rootfs.tar.gz
         rm -rf bin/targets/rockchip/armv8/config.buildinfo
         rm -rf bin/targets/rockchip/armv8/packages-server.zip
         make checksum
@@ -166,7 +166,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} DoorNet2-linux-5.4_精简_超频_docker容器
+          name: ${{ steps.tag.outputs.release_date }} rockchip-5.18_精简_超频_docker容器
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
