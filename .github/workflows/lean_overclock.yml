@@ -70,6 +70,8 @@ jobs:
       run: |
         cd $OPENWRTROOT
         ./scripts/feeds install -a
+        rm -rf target/linux/rockchip/files-5.18/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dts
+        cp -f $GITHUB_WORKSPACE/rk3328-nanopi-r2c.dts ./target/linux/rockchip/files-5.18/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dts
 
     - name: Load Custom Configuration
       run: |
