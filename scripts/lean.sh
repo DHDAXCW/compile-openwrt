@@ -107,9 +107,6 @@ svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder
 # Add luci-app-poweroff
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/DHDAXCW/OpenAppFilter
-
 # Add luci-aliyundrive-webdav
 rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
 rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
