@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: lean_overclock
+name: lean_overclock-p2
 
 on:
   repository_dispatch:
